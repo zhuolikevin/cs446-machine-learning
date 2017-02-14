@@ -20,9 +20,10 @@ public class FeatureGenerator {
   private static FastVector labels;
 
   static {
-    features = new String[] { "firstName0", "firstNameN" };
+    features = new String[] { "firstName0", "firstName1", "firstName2", "firstName3", "firstName4",
+                              "lastNameO", "lastName1", "lastName2", "lastName3", "lastName4" };
 
-    List<String> ff = new ArrayList<String>();
+    List<String> ff = new ArrayList<>();
 
     for (String f : features) {
       for (char letter = 'a'; letter <= 'z'; letter++) {
@@ -86,14 +87,19 @@ public class FeatureGenerator {
     String[] parts = inputLine.split("\\s+");
     String label = parts[0];
     String firstName = parts[1].toLowerCase();
+    String lastName = parts[2].toLowerCase();
 
     Instance instance = new Instance(features.length + 1);
     instance.setDataset(instances);
 
-    Set<String> feats = new HashSet<String>();
+    Set<String> feats = new HashSet<>();
 
-    feats.add("firstName0=" + firstName.charAt(0));
-    feats.add("firstNameN=" + firstName.charAt(firstName.length() - 1));
+    for (int i = 0; i < firstName.length(); i++) {
+      feats.add("firstName" + String.valueOf(i) + "=" + firstName.charAt(i));
+    }
+    for (int i = 0; i < lastName.length(); i++) {
+      feats.add("lastName" + String.valueOf(i) + "=" + lastName.charAt(i));
+    }
 
     for (int featureId = 0; featureId < features.length; featureId++) {
       Attribute att = instances.attribute(features[featureId]);
