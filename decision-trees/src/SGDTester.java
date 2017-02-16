@@ -1,29 +1,12 @@
 package cs446.homework2;
 
 import weka.core.Instances;
-
 import java.io.File;
 import java.io.FileReader;
-
 import cs446.homework2.SGD;
+import cs446.homework2.StatisticalUtil;
 
 public class SGDTester {
-  public static double getAverage(double[] array) {
-    double sum = 0;
-    for (int i = 0; i < array.length; i++) {
-      sum += array[i];
-    }
-    return sum / array.length;
-  }
-
-  public static double getStandardDeviation(double[] array) {
-    double sum = 0;
-    double average = getAverage(array);
-    for (int i = 0; i < array.length; i++) {
-      sum += (array[i] - average) * (array[i] - average);
-    }
-    return Math.sqrt(sum / array.length);
-  }
 
   public static void main(String[] args) throws Exception {
     if (args.length != 10) {
@@ -51,42 +34,36 @@ public class SGDTester {
     double optimalLearningRate = learningRates[0];
     double optimalThreshold = thresholds[0];
 
+    System.out.println("========== SGD ==========");
+
     for (int i = 0; i < learningRates.length; i++) {
       for (int j = 0; j < thresholds.length; j++) {
+        System.out.println("Learning Rate: " + learningRates[i]);
+        System.out.println("Threshold: " + thresholds[i]);
         double[] accuracyListCV = new double[5];
         for (int k = 0; k < 5; k++) {
-
+          System.out.println("----- Fold " + (k + 1) + "/5 -----");
           SGD classifier = new SGD(260);
 
           classifier.train(train[k], learningRates[i], thresholds[j]);
           accuracyListCV[k] = classifier.test(test[k]);
 
-//          System.out.println(accuracyListCV[k]);
+          System.out.println("Fold Accuracy: " + accuracyListCV[k]);
         }
-        double avgAccuracy = getAverage(accuracyListCV);
+        double avgAccuracy = StatisticalUtil.getAverage(accuracyListCV);
         if (avgAccuracy > maxArg) {
           maxArg = avgAccuracy;
-          standardDeviationCorres = getStandardDeviation(accuracyListCV);
+          standardDeviationCorres = StatisticalUtil.getStandardDeviation(accuracyListCV);
           optimalLearningRate = learningRates[i];
           optimalThreshold = thresholds[j];
         }
       }
     }
+    System.out.println("----- Summary -----");
     System.out.println("Optimal Learning Rate: " + optimalLearningRate);
     System.out.println("Optimal Threshold: " + optimalThreshold);
     System.out.println("Average Accuracy: " + String.format("%.2f", maxArg) + "%");
     System.out.println("Standard Deviation: " + String.format("%.2f", standardDeviationCorres));
 
-//    double[] accuracyListCV = new double[5];
-//    for (int k = 0; k < 5; k++) {
-//      SGD classifier = new SGD(260);
-//
-//      classifier.train(train[k], 0.00001, 0.00000001);
-//      accuracyListCV[k] = classifier.test(test[k]);
-//
-//      System.out.println(accuracyListCV[k]);
-//    }
-//    System.out.println("Average Accuracy: " + String.format("%.2f", getAverage(accuracyListCV)) + "%");
-//    System.out.println("Standard Deviation: " + String.format("%.2f", getStandardDeviation(accuracyListCV)));
   }
 }

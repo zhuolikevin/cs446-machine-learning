@@ -2,28 +2,12 @@ package cs446.homework2;
 
 import java.io.File;
 import java.io.FileReader;
-
 import weka.classifiers.Evaluation;
 import weka.core.Instances;
 import cs446.weka.classifiers.trees.Id3;
+import cs446.homework2.StatisticalUtil;
 
 public class WekaTester {
-  public static double getAverage(double[] array) {
-    double sum = 0;
-    for (int i = 0; i < array.length; i++) {
-      sum += array[i];
-    }
-    return sum / array.length;
-  }
-
-  public static double getStandardDeviation(double[] array) {
-    double sum = 0;
-    double average = getAverage(array);
-    for (int i = 0; i < array.length; i++) {
-      sum += (array[i] - average) * (array[i] - average);
-    }
-    return Math.sqrt(sum / array.length);
-  }
 
   public static void main(String[] args) throws Exception {
     if (args.length != 10) {
@@ -48,9 +32,9 @@ public class WekaTester {
     int[] depthList = new int[] { -1, 4, 8 };
     for (int depth : depthList) {
       if (depth == -1) {
-        System.out.println("=== ID3 with Unlimited Depth ===");
+        System.out.println("========== ID3 with Unlimited Depth ==========");
       } else {
-        System.out.println("=== ID3 with Depth of " + depth + " ===");
+        System.out.println("========== ID3 with Depth of " + depth + " ==========");
       }
 
       Id3 classifier = new Id3();
@@ -58,25 +42,19 @@ public class WekaTester {
 
       double[] accuracyListCV = new double[5];
       for (int i = 0; i < 5; i++) {
-//        System.out.println("Fold " + (i + 1) + "/5");
+        System.out.println("----- Fold " + (i + 1) + "/5 -----");
 
         classifier.buildClassifier(train[i]);
         Evaluation evaluation = new Evaluation(test[i]);
         evaluation.evaluateModel(classifier, test[i]);
 
-        double correctInstanceNum = evaluation.correct();
-        double incorrectInstanceNum = evaluation.incorrect();
-
-//        accuracyListCV[i] = correctInstanceNum / (correctInstanceNum + incorrectInstanceNum);
         accuracyListCV[i] = evaluation.pctCorrect();
-        System.out.println(accuracyListCV[i]);
-//        System.out.println("\tCorrectly Classified Instances: " + evaluation.correct());
-//        System.out.println("\tIncorrectly Classified Instances: " + evaluation.incorrect());
-//        System.out.println("\tAccuracy: " + String.format("%.2f", accuracyListCV[i]) + "%");
+        System.out.println("Fold Accuracy: " + accuracyListCV[i]);
       }
 
-      System.out.println("Average Accuracy: " + String.format("%.2f", getAverage(accuracyListCV)) + "%");
-      System.out.println("Standard Deviation: " + String.format("%.2f", getStandardDeviation(accuracyListCV)));
+      System.out.println("----- Summary -----");
+      System.out.println("Average Accuracy: " + String.format("%.2f", StatisticalUtil.getAverage(accuracyListCV)) + "%");
+      System.out.println("Standard Deviation: " + String.format("%.2f", StatisticalUtil.getStandardDeviation(accuracyListCV)));
     }
   }
 }

@@ -43,12 +43,10 @@ public class SGD {
   public void train(Instances data, double learningRate, double threshold) throws Exception {
     boolean stopFlag = false;
     double avgError = Double.POSITIVE_INFINITY;
-//    int count = 0;
     while (!stopFlag) {
       int instancesSize = data.numInstances();
       int i;
       for (i = 0; i < instancesSize; i++) {
-//        System.out.println(w.toString());
         Instance curInstance = data.instance(i);
         Vector<Integer> x = resolveInstanceValue(curInstance.toDoubleArray());
         String label = resolveInstanceClass(curInstance.classValue());
@@ -60,19 +58,13 @@ public class SGD {
 
         double tempAvgError = calculateAvgError(data);
 
-//        System.out.println(avgError + " " + tempAvgError);
         if (Math.abs(tempAvgError - avgError) < threshold) {
-//          System.out.println("break");
-//          System.out.println(tempAvgError + " " + avgError);
           stopFlag = true;
           break;
         } else {
           avgError = tempAvgError;
         }
       }
-//      System.out.println(i + " " + instancesSize);
-//      count++;
-//      System.out.println(count);
     }
   }
 
