@@ -27,8 +27,12 @@ public class SGDTester {
       train[i].setClassIndex(train[i].numAttributes() - 1);
     }
 
-    double[] learningRates = new double[] { 0.00001, 0.0001, 0.001, 0.01, 0.1 };
-    double[] thresholds = new double[] { 0.0000001, 0.0000005, 0.000001, 0.000005, 0.00001 };
+//    double[] learningRates = new double[] { 0.00001, 0.0001, 0.001, 0.01, 0.1 };
+    double[] learningRates = new double[334];
+    for (int i = 0; i < 334; i++) {
+      learningRates[i] = 0.0001 + i * 0.0003;
+    }
+    double[] thresholds = new double[] { 0.000001, 0.00001, 0.0001 };
     double maxArg = Double.NEGATIVE_INFINITY;
     double standardDeviationCorres = 0;
     double optimalLearningRate = learningRates[0];
@@ -38,8 +42,9 @@ public class SGDTester {
 
     for (int i = 0; i < learningRates.length; i++) {
       for (int j = 0; j < thresholds.length; j++) {
+        System.out.println(">>>>> Progress: " + (i * thresholds.length + j + 1) + "/" + learningRates.length * thresholds.length + "<<<<<");
         System.out.println("Learning Rate: " + learningRates[i]);
-        System.out.println("Threshold: " + thresholds[i]);
+        System.out.println("Threshold: " + thresholds[j]);
         double[] accuracyListCV = new double[5];
         for (int k = 0; k < 5; k++) {
           System.out.println("----- Fold " + (k + 1) + "/5 -----");

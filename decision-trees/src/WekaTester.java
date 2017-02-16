@@ -41,6 +41,8 @@ public class WekaTester {
       classifier.setMaxDepth(depth);
 
       double[] accuracyListCV = new double[5];
+      double maxAcc = accuracyListCV[0];
+      int maxAccIndex = 0;
       for (int i = 0; i < 5; i++) {
         System.out.println("----- Fold " + (i + 1) + "/5 -----");
 
@@ -50,9 +52,18 @@ public class WekaTester {
 
         accuracyListCV[i] = evaluation.pctCorrect();
         System.out.println("Fold Accuracy: " + accuracyListCV[i]);
+        if (accuracyListCV[i] > maxAcc) {
+          maxAcc = accuracyListCV[i];
+          maxAccIndex = i;
+        }
+
+        if (depth == -1 && i == 2 || depth == 4 && i == 1 || depth == 8 && i == 4) {
+          System.out.println(classifier);
+        }
       }
 
       System.out.println("----- Summary -----");
+      System.out.println("Best Performance Fold: Index " + maxAccIndex + ", Accuracy: " + String.format("%.2f", maxAcc));
       System.out.println("Average Accuracy: " + String.format("%.2f", StatisticalUtil.getAverage(accuracyListCV)) + "%");
       System.out.println("Standard Deviation: " + String.format("%.2f", StatisticalUtil.getStandardDeviation(accuracyListCV)));
     }

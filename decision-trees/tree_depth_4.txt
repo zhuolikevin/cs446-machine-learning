@@ -1,0 +1,20 @@
+lastName2=l = 1
+|  firstName2=r = 1: -
+|  firstName2=r = 0
+|  |  firstName2=m = 1: -
+|  |  firstName2=m = 0: +
+lastName2=l = 0
+|  lastName2=o = 1
+|  |  firstName0=d = 1: -
+|  |  firstName0=d = 0
+|  |  |  firstName2=l = 1: -
+|  |  |  firstName2=l = 0: +
+|  lastName2=o = 0
+|  |  firstName3=f = 1: +
+|  |  firstName3=f = 0
+|  |  |  lastName0=m = 1
+|  |  |  |  firstName0=n = 1: -
+|  |  |  |  firstName0=n = 0: +
+|  |  |  lastName0=m = 0
+|  |  |  |  lastName1=l = 1: +
+|  |  |  |  lastName1=l = 0: -

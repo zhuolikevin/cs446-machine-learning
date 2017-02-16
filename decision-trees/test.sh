@@ -23,6 +23,6 @@ make
 # Using the features generated above, train a decision tree classifier
 # to predict the data. This is just an example code and in the
 # homework, you should perform five fold cross-validation.
-#java -cp lib/weka.jar:bin cs446.homework2.WekaTester ./../badges.fold5.arff ./../badges.fold4.arff ./../badges.fold3.arff ./../badges.fold2.arff ./../badges.fold1.arff ./../badges.fold1234.arff ./../badges.fold1235.arff ./../badges.fold1245.arff ./../badges.fold1345.arff ./../badges.fold2345.arff
-java -cp lib/weka.jar:bin cs446.homework2.SGDTester ./../badges.fold5.arff ./../badges.fold4.arff ./../badges.fold3.arff ./../badges.fold2.arff ./../badges.fold1.arff ./../badges.fold1234.arff ./../badges.fold1235.arff ./../badges.fold1245.arff ./../badges.fold1345.arff ./../badges.fold2345.arff
+java -cp lib/weka.jar:bin cs446.homework2.WekaTester ./../badges.fold5.arff ./../badges.fold4.arff ./../badges.fold3.arff ./../badges.fold2.arff ./../badges.fold1.arff ./../badges.fold1234.arff ./../badges.fold1235.arff ./../badges.fold1245.arff ./../badges.fold1345.arff ./../badges.fold2345.arff
+#java -cp lib/weka.jar:bin cs446.homework2.SGDTester ./../badges.fold5.arff ./../badges.fold4.arff ./../badges.fold3.arff ./../badges.fold2.arff ./../badges.fold1.arff ./../badges.fold1234.arff ./../badges.fold1235.arff ./../badges.fold1245.arff ./../badges.fold1345.arff ./../badges.fold2345.arff
 #java -cp lib/weka.jar:bin cs446.homework2.StumpSGDTester ./../badges.fold5.arff ./../badges.fold4.arff ./../badges.fold3.arff ./../badges.fold2.arff ./../badges.fold1.arff ./../badges.fold1234.arff ./../badges.fold1235.arff ./../badges.fold1245.arff ./../badges.fold1345.arff ./../badges.fold2345.arff
