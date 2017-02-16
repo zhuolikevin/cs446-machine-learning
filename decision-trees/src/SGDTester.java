@@ -27,7 +27,6 @@ public class SGDTester {
       train[i].setClassIndex(train[i].numAttributes() - 1);
     }
 
-//    double[] learningRates = new double[] { 0.00001, 0.0001, 0.001, 0.01, 0.1 };
     double[] learningRates = new double[334];
     for (int i = 0; i < 334; i++) {
       learningRates[i] = 0.0001 + i * 0.0003;
@@ -42,7 +41,7 @@ public class SGDTester {
 
     for (int i = 0; i < learningRates.length; i++) {
       for (int j = 0; j < thresholds.length; j++) {
-        System.out.println(">>>>> Progress: " + (i * thresholds.length + j + 1) + "/" + learningRates.length * thresholds.length + "<<<<<");
+        System.out.println(">>>>> Progress: " + (i * thresholds.length + j + 1) + "/" + learningRates.length * thresholds.length + " <<<<<");
         System.out.println("Learning Rate: " + learningRates[i]);
         System.out.println("Threshold: " + thresholds[j]);
         double[] accuracyListCV = new double[5];
