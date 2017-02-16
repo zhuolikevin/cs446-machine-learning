@@ -21,7 +21,7 @@ public class FeatureGenerator {
 
   static {
     features = new String[] { "firstName0", "firstName1", "firstName2", "firstName3", "firstName4",
-                              "lastNameO", "lastName1", "lastName2", "lastName3", "lastName4" };
+                              "lastName0", "lastName1", "lastName2", "lastName3", "lastName4" };
 
     List<String> ff = new ArrayList<>();
 
@@ -95,10 +95,10 @@ public class FeatureGenerator {
     Set<String> feats = new HashSet<>();
 
     for (int i = 0; i < firstName.length(); i++) {
-      feats.add("firstName" + String.valueOf(i) + "=" + firstName.charAt(i));
+      feats.add("firstName" + i + "=" + firstName.charAt(i));
     }
     for (int i = 0; i < lastName.length(); i++) {
-      feats.add("lastName" + String.valueOf(i) + "=" + lastName.charAt(i));
+      feats.add("lastName" + i + "=" + lastName.charAt(i));
     }
 
     for (int featureId = 0; featureId < features.length; featureId++) {
