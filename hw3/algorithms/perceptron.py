@@ -25,5 +25,5 @@ class Perceptron():
             else:
                 incorrect_num += 1
 
-        accuracy = correct_num * 100 / (correct_num + incorrect_num)
+        accuracy = correct_num * 100.0 / (correct_num + incorrect_num)
         return correct_num, incorrect_num, accuracy
