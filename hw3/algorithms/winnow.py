@@ -1,18 +1,18 @@
 import numpy
+import math
 
-class Perceptron():
+class Winnow():
     def __init__(self, dimension):
-        self.w = [0 for i in range(dimension)]
-        self.theta = 0
+        self.w = [1 for i in range(dimension)]
+        self.theta = - dimension
 
-    def train(self, y, x, eta, gammar=0):
+    def train(self, y, x, alpha, gammar=0):
         for i in range(20):
             for j in range(len(y)):
                 predictY = numpy.dot(self.w, x[j]) + self.theta
                 if y[j] * predictY <= gammar:
                     for k in range(len(self.w)):
-                        self.w[k] = self.w[k] + eta * y[j] * x[j][k]
-                    self.theta = self.theta + eta * y[j]
+                        self.w[k] = self.w[k] * math.pow(alpha, y[j] * x[j][k])
 
     def test(self, y, x):
         correct_num = incorrect_num = 0

@@ -23,6 +23,12 @@ def main(argv):
 def generateData(l, m, n, instance_num, noise_flag, filename):
     (y, x) = gen(l, m, n, instance_num, noise_flag);
 
+    numpy.save(DATA_PATH_PREFIX + filename + "_all_y", y);
+    print "Generated " + DATA_PATH_PREFIX + filename + "_all_y.npy"
+
+    numpy.save(DATA_PATH_PREFIX + filename + "_all_x", x);
+    print "Generated " + DATA_PATH_PREFIX + filename + "_all_x.npy"
+
     sample_num = int(SAMPLE_PERCENTAGE * instance_num)
 
     instances = zip(x, y)

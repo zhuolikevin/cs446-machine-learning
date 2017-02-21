@@ -1,6 +1,7 @@
 import time
 import numpy
 from algorithms.perceptron import Perceptron
+from algorithms.winnow import Winnow
 
 # exp1a
 for exp_flag in ["a", "b"]:
@@ -36,14 +37,58 @@ for exp_flag in ["a", "b"]:
     max_accuracy = 0
     for eta in learning_rates:
         print "eta=%s..." % eta
-        perceptron = Perceptron(dimension, 1)
-        perceptron.train(train_y, train_x, eta)
+        perceptron = Perceptron(dimension)
+        perceptron.train(train_y, train_x, eta, 1)
         (correct_num, incorrect_num, accuracy) = perceptron.test(test_y, test_x)
         print "Accuracy: %s" % round(accuracy, 2) + "%"
         if accuracy > max_accuracy:
             max_accuracy = accuracy
             optimal_eta = eta
     print "Optimal learning rate: %s" % optimal_eta
+    print "Accuracy: %s" % round(max_accuracy, 2) + "%"
+
+    print "[Time Consumption] %ss" % (time.time() - start_time)
+
+    # winnow
+    print "\n----- Winnow -----"
+    start_time = time.time()
+
+    alphas = [1.1, 1.01, 1.005, 1.0005, 1.0001]
+    max_accuracy = 0
+    for alpha in alphas:
+        print "alpha=%s..." % alpha
+        winnow = Winnow(dimension)
+        winnow.train(train_y, train_x, alpha)
+        (correct_num, incorrect_num, accuracy) = winnow.test(test_y, test_x)
+        print "Accuracy: %s" % round(accuracy, 2) + "%"
+        if accuracy > max_accuracy:
+            max_accuracy = accuracy
+            optimal_alpha = alpha
+    print "Optimal promotion/demotion parameter: %s" % optimal_alpha
+    print "Accuracy: %s" % round(max_accuracy, 2) + "%"
+
+    print "[Time Consumption] %ss" % (time.time() - start_time)
+
+    # winnow with margin
+    print "\n----- Winnow w/ margin -----"
+    start_time = time.time()
+
+    alphas = [1.1, 1.01, 1.005, 1.0005, 1.0001]
+    gammars = [2.0, 0.3, 0.04, 0.006, 0.001]
+    max_accuracy = 0
+    for alpha in alphas:
+        for gammar in gammars:
+            print "alpha=%s, gammar=%s..." % (alpha, gammar)
+            winnow = Winnow(dimension)
+            winnow.train(train_y, train_x, alpha, gammar)
+            (correct_num, incorrect_num, accuracy) = winnow.test(test_y, test_x)
+            print "Accuracy: %s" % round(accuracy, 2) + "%"
+            if accuracy > max_accuracy:
+                max_accuracy = accuracy
+                optimal_alpha = alpha
+                optimal_gammar = gammar
+    print "Optimal promotion/demotion parameter: %s" % optimal_alpha
+    print "Optimal gammar: %s" % optimal_gammar
     print "Accuracy: %s" % round(max_accuracy, 2) + "%"
 
     print "[Time Consumption] %ss" % (time.time() - start_time)
