@@ -14,12 +14,10 @@ for exp_flag in ["a", "b"]:
         print "\n>>>>>>>>>> l=10, m=100, n=500 <<<<<<<<<<"
         dimension = 500
         plt.figure(1)
-        plt.title("l=10, m=100, n=50")
     else:
         print "\n>>>>>>>>>> l=10, m=100, n=1000 <<<<<<<<<<"
         dimension = 1000
         plt.figure(2)
-        plt.title("l=10, m=100, n=1000")
 
     print "Loading data..."
     y = numpy.load("data/exp1_" + exp_flag + "_all_y.npy")

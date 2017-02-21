@@ -1,0 +1,57 @@
+>>>>>>>>>> l=10, m=100, n=500 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+Accumulated Mistake Numbers: 11544
+[Time Consumed] 18.4913289547s
+
+----- Perceptron w/ margin -----
+eta = 0.005
+gamma = 1
+Accumulated Mistake Numbers: 11156
+[Time Consumed] 35.1843659878s
+
+----- Winnow -----
+alpha = 1.1
+Accumulated Mistake Numbers: 3067
+[Time Consumed] 40.3332428932s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 0.001
+Accumulated Mistake Numbers: 3067
+[Time Consumed] 45.7086188793s
+
+----- AdaGrad -----
+eta = 0.25
+Accumulated Mistake Numbers: 4875
+[Time Consumed] 99.5444569588s
+
+>>>>>>>>>> l=10, m=100, n=1000 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+Accumulated Mistake Numbers: 16318
+[Time Consumed] 147.853576899s
+
+----- Perceptron w/ margin -----
+eta = 0.03
+gamma = 1
+Accumulated Mistake Numbers: 16052
+[Time Consumed] 169.711289883s
+
+----- Winnow -----
+alpha = 1.1
+Accumulated Mistake Numbers: 4006
+[Time Consumed] 179.875871897s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 2.0
+Accumulated Mistake Numbers: 3890
+[Time Consumed] 190.386317968s
+
+----- AdaGrad -----
+eta = 0.25
+Accumulated Mistake Numbers: 6909
+[Time Consumed] 285.361882925s
