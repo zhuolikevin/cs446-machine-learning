@@ -1,7 +1,9 @@
 # CS446 Spring 2017 HW2
 
 > Name: Zhuo Li
+
 > NetID: zhuol2
+
 > Email: zhuol2@illinois.edu
 
 ## Directory Descriptions

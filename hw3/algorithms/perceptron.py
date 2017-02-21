@@ -5,11 +5,11 @@ class Perceptron():
         self.w = [0 for i in range(dimension)]
         self.theta = 0
 
-    def train(self, y, x, eta, gammar=0):
+    def train(self, y, x, eta, gamma=0):
         for i in range(20):
             for j in range(len(y)):
                 predictY = numpy.dot(self.w, x[j]) + self.theta
-                if y[j] * predictY <= gammar:
+                if y[j] * predictY <= gamma:
                     for k in range(len(self.w)):
                         self.w[k] = self.w[k] + eta * y[j] * x[j][k]
                     self.theta = self.theta + eta * y[j]
@@ -25,3 +25,20 @@ class Perceptron():
 
         accuracy = correct_num * 100.0 / (correct_num + incorrect_num)
         return correct_num, incorrect_num, accuracy
+
+    def train_track_mistakes(self, y, x, eta, gamma=0):
+        mistakes = []
+        mistake_num = 0
+        for j in range(len(y)):
+            predictY = numpy.dot(self.w, x[j]) + self.theta
+
+            if y[j] != numpy.sign(predictY):
+                mistake_num += 1
+            mistakes.append(mistake_num)
+
+            if y[j] * predictY <= gamma:
+                for k in range(len(self.w)):
+                    self.w[k] = self.w[k] + eta * y[j] * x[j][k]
+                self.theta = self.theta + eta * y[j]
+
+        return mistakes, mistake_num
