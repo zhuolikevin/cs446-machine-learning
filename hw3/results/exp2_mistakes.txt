@@ -1,0 +1,179 @@
+>>>>>>>>>> l=10, m=20, n=40 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+>> Train iteration: 1
+Mistake Numbers: 921
+[Time Consumed] 0.2511241436s
+
+----- Perceptron w/ margin -----
+eta = 0.25
+gamma = 1
+>> Train iteration: 1
+Mistake Numbers: 816
+[Time Consumed] 0.427011966705s
+
+----- Winnow -----
+alpha = 1.1
+>> Train iteration: 1
+Mistake Numbers: 131
+[Time Consumed] 0.473556995392s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 2.0
+>> Train iteration: 1
+Mistake Numbers: 93
+[Time Consumed] 0.523492097855s
+
+----- AdaGrad -----
+eta = 1.5
+>> Train iteration: 1
+Mistake Numbers: 800
+[Time Consumed] 1.08556604385s
+
+>>>>>>>>>> l=10, m=20, n=80 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+>> Train iteration: 1
+Mistake Numbers: 1868
+[Time Consumed] 1.97805213928s
+
+----- Perceptron w/ margin -----
+eta = 0.25
+gamma = 1
+>> Train iteration: 1
+Mistake Numbers: 1673
+[Time Consumed] 2.45104694366s
+
+----- Winnow -----
+alpha = 1.1
+>> Train iteration: 1
+Mistake Numbers: 261
+[Time Consumed] 2.56315994263s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 2.0
+>> Train iteration: 1
+Mistake Numbers: 208
+[Time Consumed] 2.66892814636s
+
+----- AdaGrad -----
+eta = 1.5
+>> Train iteration: 1
+Mistake Numbers: 1644
+[Time Consumed] 5.34663009644s
+
+>>>>>>>>>> l=10, m=20, n=120 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+>> Train iteration: 1
+Mistake Numbers: 2913
+[Time Consumed] 7.19716310501s
+
+----- Perceptron w/ margin -----
+eta = 0.25
+gamma = 1
+>> Train iteration: 1
+Mistake Numbers: 2609
+[Time Consumed] 8.20822715759s
+
+----- Winnow -----
+alpha = 1.1
+>> Train iteration: 1
+Mistake Numbers: 348
+[Time Consumed] 8.40733408928s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 2.0
+>> Train iteration: 1
+Mistake Numbers: 298
+[Time Consumed] 8.55720305443s
+
+----- AdaGrad -----
+eta = 1.5
+>> Train iteration: 1
+Mistake Numbers: 2954
+[Time Consumed] 18.9969160557s
+
+>>>>>>>>>> l=10, m=20, n=160 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+>> Train iteration: 1
+>> Train iteration: 2
+Mistake Numbers: 4039
+[Time Consumed] 22.6366889477s
+
+----- Perceptron w/ margin -----
+eta = 0.03
+gamma = 1
+>> Train iteration: 1
+>> Train iteration: 2
+Mistake Numbers: 3070
+[Time Consumed] 25.0212590694s
+
+----- Winnow -----
+alpha = 1.1
+>> Train iteration: 1
+Mistake Numbers: 407
+[Time Consumed] 25.2586820126s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 2.0
+>> Train iteration: 1
+Mistake Numbers: 352
+[Time Consumed] 25.4802520275s
+
+----- AdaGrad -----
+eta = 1.5
+>> Train iteration: 1
+>> Train iteration: 2
+>> Train iteration: 3
+Mistake Numbers: 4507
+[Time Consumed] 55.2092421055s
+
+>>>>>>>>>> l=10, m=20, n=200 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+>> Train iteration: 1
+>> Train iteration: 2
+Mistake Numbers: 5078
+[Time Consumed] 61.5071110725s
+
+----- Perceptron w/ margin -----
+eta = 0.03
+gamma = 1
+>> Train iteration: 1
+>> Train iteration: 2
+Mistake Numbers: 3717
+[Time Consumed] 65.246199131s
+
+----- Winnow -----
+alpha = 1.1
+>> Train iteration: 1
+Mistake Numbers: 457
+[Time Consumed] 65.5885300636s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 2.0
+>> Train iteration: 1
+Mistake Numbers: 409
+[Time Consumed] 65.8807380199s
+
+----- AdaGrad -----
+eta = 1.5
+>> Train iteration: 1
+>> Train iteration: 2
+>> Train iteration: 3
+>> Train iteration: 4
+>> Train iteration: 5
+Mistake Numbers: 6320
+[Time Consumed] 137.592076063s
