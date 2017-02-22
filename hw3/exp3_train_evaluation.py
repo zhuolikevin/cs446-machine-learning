@@ -1,4 +1,5 @@
 import time
+import numpy
 from algorithms.perceptron import Perceptron
 from algorithms.winnow import Winnow
 from algorithms.ada_grad import AdaGrad
@@ -19,7 +20,7 @@ for relevant_m in [100, 500, 1000]:
     # perceptron
     print "\n----- Perceptron -----"
 
-    perceptron = Perceptron(dimension)
+    perceptron = Perceptron(DIMENSION)
     eta = 1
     print "eta = %s" % eta
 
@@ -34,9 +35,9 @@ for relevant_m in [100, 500, 1000]:
     # perceptron with margin
     print "\n----- Perceptron w/ margin -----"
 
-    perceptron = Perceptron(dimension)
-    eta = # TODO
-    gammer = 1
+    perceptron = Perceptron(DIMENSION)
+    eta = 0.03 if relevant_m in [100, 1000] else 1.5
+    gamma = 1
     print "eta = %s" % eta
     print "gamma = %s" % gamma
 
@@ -51,8 +52,8 @@ for relevant_m in [100, 500, 1000]:
     # winnow
     print "\n----- Winnow -----"
 
-    winnow = Winnow(dimension)
-    alphas = # TODO
+    winnow = Winnow(DIMENSION)
+    alpha = 1.1
     print "alpha = %s" % alpha
 
     winnow.train(train_y, train_x, alpha)
@@ -66,9 +67,9 @@ for relevant_m in [100, 500, 1000]:
     # winnow with margin
     print "\n----- Winnow w/ margin -----"
 
-    winnow = Winnow(dimension)
-    alphas = # TODO
-    gammas = # TODO
+    winnow = Winnow(DIMENSION)
+    alpha = 1.1
+    gamma = {100: 0.006, 500: 0.001, 1000:2.0}[relevant_m]
     print "alpha = %s" % alpha
     print "gamma = %s" % gamma
 
@@ -83,8 +84,8 @@ for relevant_m in [100, 500, 1000]:
     # adagrad
     print "\n----- AdaGrad -----"
 
-    ada_grad = AdaGrad(dimension)
-    eta = # TODO
+    ada_grad = AdaGrad(DIMENSION)
+    eta = 0.25 if relevant_m == 100 else 1.5
     print "eta = %s" % eta
 
     ada_grad.train(train_y, train_x, eta)

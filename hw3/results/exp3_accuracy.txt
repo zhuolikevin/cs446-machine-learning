@@ -1,0 +1,119 @@
+>>>>>>>>>> l=10, m=100, n=1000 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+eta = 1
+Correct Predictions: 9061
+Mistakes: 939
+Accuracy: 90.61%
+[Time Consumed] 512.842671156s
+
+----- Perceptron w/ margin -----
+eta = 0.03
+gamma = 1
+Correct Predictions: 9733
+Mistakes: 267
+Accuracy: 97.33%
+[Time Consumed] 748.823987007s
+
+----- Winnow -----
+alpha = 1.1
+Correct Predictions: 9575
+Mistakes: 425
+Accuracy: 95.75%
+[Time Consumed] 1000.66818404s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 0.006
+Correct Predictions: 9636
+Mistakes: 364
+Accuracy: 96.36%
+[Time Consumed] 1259.35540295s
+
+----- AdaGrad -----
+eta = 0.25
+Correct Predictions: 9998
+Mistakes: 2
+Accuracy: 99.98%
+[Time Consumed] 2941.7347641s
+
+>>>>>>>>>> l=10, m=500, n=1000 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+eta = 1
+Correct Predictions: 8860
+Mistakes: 1140
+Accuracy: 88.6%
+[Time Consumed] 3658.57562709s
+
+----- Perceptron w/ margin -----
+eta = 1.5
+gamma = 1
+Correct Predictions: 8860
+Mistakes: 1140
+Accuracy: 88.6%
+[Time Consumed] 3976.74453807s
+
+----- Winnow -----
+alpha = 1.1
+Correct Predictions: 8707
+Mistakes: 1293
+Accuracy: 87.07%
+[Time Consumed] 4332.30414104s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 0.001
+Correct Predictions: 8839
+Mistakes: 1161
+Accuracy: 88.39%
+[Time Consumed] 4987.46293497s
+
+----- AdaGrad -----
+eta = 1.5
+Correct Predictions: 9973
+Mistakes: 27
+Accuracy: 99.73%
+[Time Consumed] 7402.06883907s
+
+>>>>>>>>>> l=10, m=1000, n=1000 <<<<<<<<<<
+Loading data...
+
+----- Perceptron -----
+eta = 1
+Correct Predictions: 7488
+Mistakes: 2512
+Accuracy: 74.88%
+[Time Consumed] 8177.89058995s
+
+----- Perceptron w/ margin -----
+eta = 0.03
+gamma = 1
+Correct Predictions: 8230
+Mistakes: 1770
+Accuracy: 82.3%
+[Time Consumed] 8686.70685101s
+
+----- Winnow -----
+alpha = 1.1
+Correct Predictions: 7625
+Mistakes: 2375
+Accuracy: 76.25%
+[Time Consumed] 9095.56561399s
+
+----- Winnow w/ margin -----
+alpha = 1.1
+gamma = 2.0
+Correct Predictions: 7429
+Mistakes: 2571
+Accuracy: 74.29%
+[Time Consumed] 9512.57288194s
+
+----- AdaGrad -----
+eta = 1.5
+Correct Predictions: 8458
+Mistakes: 1542
+Accuracy: 84.58%
+[Time Consumed] 11529.3250101s

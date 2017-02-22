@@ -107,3 +107,45 @@ class AdaGrad():
                         self.theta = self.theta + eta * y[j] / math.sqrt(G_theta)
 
         return mistake_num
+
+    def train_track_misclass_hinge(self, y, x, eta):
+        misclass_error_list = []
+        hinge_loss_list = []
+
+        # Sum of gradients' squares
+        G_w = [0 for i in range(len(self.w))]
+        G_theta = 0
+
+        for i in range(50):
+            print "Round %s..." % (i + 1)
+            misclass_error = 0
+            hinge_loss = 0
+
+            for j in range(len(y)):
+                # Update G
+                for k in range(len(G_w)):
+                    G_w[k] += math.pow(- y[j] * x[j][k], 2)
+                G_theta += math.pow(- y[j], 2)
+
+                predictY = numpy.dot(self.w, x[j]) + self.theta
+
+                # Update misclassification errors and hinge loss
+                if y[j] != numpy.sign(predictY):
+                    misclass_error += 1
+                hinge_loss += max(0, 1 - y[j] * predictY)
+
+                if y[j] * predictY <= 1:
+                    for k in range(len(self.w)):
+                        if G_w[k] == 0:
+                            continue
+                        else:
+                            self.w[k] = self.w[k] + eta * y[j] * x[j][k] / math.sqrt(G_w[k])
+                    if G_theta != 0:
+                        self.theta = self.theta + eta * y[j] / math.sqrt(G_theta)
+
+            print "Missclassification Error: %s" % misclass_error
+            print "Hinge Loss: %s" % hinge_loss
+            misclass_error_list.append(misclass_error)
+            hinge_loss_list.append(hinge_loss)
+
+        return misclass_error_list, hinge_loss_list

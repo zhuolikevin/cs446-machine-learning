@@ -9,13 +9,12 @@
 ## Project Structure
 
 - `algorithms/`: This directory contains the implementations of three algorithms (Perceptron, Winnow and AdaGrad).
-- `data/`: This directory is the data I used for experiments. It can also be generated manually. See [here](#run).
 - `results/`: Some console outputs recorded during the experiments.
 - `data_generator.py`: Common scripts for data generation.
 - `tune_parameters.py`: General tuning methods.
 - Files for each specific experiment are named with numbers. e.g. prefix `exp1_` stands for codes for the first experiment.
 
-## <a name="run"></a>Run the code
+## Run the code
 
 ### Preparation
 
