@@ -51,10 +51,10 @@ def relu_derivative (z):
     derivative = np.zeros((m, n))
     for i in range(m):
         for j in range(n):
-            if z[m, n] > 0:
-                derivative[m, n] = 1
+            if z[i, j] > 0:
+                derivative[i, j] = 1
             else:
-                derivative[m, n] = 0
+                derivative[i, j] = 0
     return derivative
 #endDef
 
