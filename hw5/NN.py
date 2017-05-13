@@ -109,10 +109,10 @@ class NN ():
         num_train = len(training_data)
 
         training_data = self.transform_data(training_data, True)
-        # print "Training NN:"
+        print "Training NN:"
         for j in xrange(self.iterations):
-            # if (j%10 == 0):
-            #     print "\tTraining step %d"%j
+            if (j%10 == 0):
+                print "\tTraining step %d"%j
             #random shuffling of the training dataset at the start of the iteration
             random.shuffle(training_data)
 
